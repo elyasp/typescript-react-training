@@ -12,5 +12,6 @@
     "moduleResolution": "Node",
     "resolveJsonModule": true
   },
-  "include": ["./src/**/*"]
+  "include": ["./src/**/*"],
+  "exclude": ["types"]
 }

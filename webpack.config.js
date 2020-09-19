@@ -13,6 +13,17 @@ module.exports = {
         loader: "babel-loader",
         exclude: /node_modules/,
       },
+      {
+        test: /\.svg?$/,
+        loader: "@svgr/webpack",
+        options: {
+          svgoConfig: {
+            plugins: {
+              removeViewBox: false,
+            },
+          },
+        },
+      },
     ],
   },
   plugins: [
