@@ -1,14 +1,15 @@
 import React from "react";
 import { PizzaContainer } from "./styles";
-import { useStateDispatch } from "./AppState";
-import { Pizza } from "../types";
-import { IAddToCartProps, withAddToCart } from "./AddToCart";
 
-interface Props extends IAddToCartProps {
+import { Pizza } from "../types";
+import { useAddToCart } from "./AddToCart";
+
+interface Props {
   pizza: Pizza;
 }
 
-const PizzaItem: React.FC<Props> = ({ pizza, addToCart }) => {
+const PizzaItem: React.FC<Props> = ({ pizza }) => {
+  const addToCart = useAddToCart();
   const handleAddToCartClick = () => {
     addToCart({
       id: pizza.id,
@@ -30,4 +31,4 @@ const PizzaItem: React.FC<Props> = ({ pizza, addToCart }) => {
   );
 };
 
-export default withAddToCart(PizzaItem);
+export default PizzaItem;
